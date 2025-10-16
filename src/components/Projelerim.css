@@ -1,0 +1,137 @@
+/* Genel renkler App.css'den alınmıştır */
+.section-content {
+    position: relative;
+    padding: 4rem 2rem;
+    background: var(--color-section-bg);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* ... (content-flow aynı kalır) ... */
+
+.title-glow {
+    font-size: 3rem;
+    color: var(--color-primary-accent); /* Turkuaz Vurgu */
+    text-shadow: 0 0 10px rgba(97, 218, 251, 0.5);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.projects-grid {
+    /* Yan yana durmasını ve eşit boyda olmasını sağlar */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem; /* Boşlukları artırdık */
+    align-items: stretch; /* Kartların eşit yüksekliğe sahip olmasını sağlar */
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05); /* Daha hafif arka plan */
+    border: 1px solid rgba(97, 218, 251, 0.2);
+    padding: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer; /* Tıklanabilir olduğunu belli eder */
+    transition: all 0.3s ease;
+    display: flex; /* İçeriği düzenlemek için */
+    flex-direction: column;
+    justify-content: space-between; /* İçerik ve 'Detayları Gör' butonu arasında boşluk bırakır */
+    height: 100%; /* grid-template ile tam uyum için */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Daha az agresif hover efekti */
+    box-shadow: 0 10px 20px rgba(97, 218, 251, 0.3);
+}
+
+.card-image-symbol {
+    width: 100%; /* Görseli sembolik yaptık */
+    max-height: 200px;
+    object-fit: contain; /* Resmi küçültmeden sığdırır */
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.project-card h3 {
+    color: var(--color-primary-accent);
+    margin: 0.5rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    /* Kısa açıklamayı okunaklı tuttuk */
+    color: var(--color-text-light);
+    flex-grow: 1; /* Metnin kalan alanı doldurmasını sağlar */
+    margin-bottom: 1rem;
+}
+
+.read-more-text {
+    color: var(--color-primary-accent);
+    font-weight: bold;
+    text-decoration: underline;
+    display: block;
+    margin-top: 1rem;
+}
+
+/* --- MODAL STILLERI --- */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--color-dark-bg); /* Koyu Arka Plan */
+    border: 2px solid var(--color-primary-accent);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 0 40px rgba(97, 218, 251, 0.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--color-primary-accent);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 5px;
+    margin: 1rem 0 2rem;
+    border: 1px solid rgba(97, 218, 251, 0.2);
+}
+
+.modal-content h2 {
+    color: var(--color-primary-accent);
+    margin-bottom: 1rem;
+}
+
+.modal-desc {
+    color: var(--color-text-light);
+    line-height: 1.8;
+}
+
+/* ... (Media queryler aynı kalır) ... */

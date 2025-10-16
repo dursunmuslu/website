@@ -1,0 +1,118 @@
+/* App.css (Canlı Turkuaz Paletine Göre Güncellenmiştir) */
+
+/* YENİ RENKLER */
+:root {
+  --color-dark-bg: #1e1e24; /* Daha koyu, daha profesyonel arka plan */
+  --color-section-bg: #282c36; /* Hakkimda.css'dekiyle uyumlu kısım */
+  --color-primary-accent: #61dafb; /* Canlı Turkuaz Vurgu Rengi */
+  --color-text-light: #e0e0e0; /* Açık Gri Metin */
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  /* Düz renk veya hafif desenli gradyan daha profesyonel durur */
+  background: var(--color-dark-bg);
+  color: var(--color-text-light);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* --- Navbar Güncellemesi --- */
+
+.custom-navbar {
+  position: sticky;
+  top: 0;
+  /* Daha opak ve keskin bir navbar */
+  background: rgba(30, 30, 36, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 0;
+  /* Turkuaz ile daha modern ve ince kenarlık */
+  border-bottom: 1px solid rgba(97, 218, 251, 0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-text {
+  font-size: 2rem;
+  /* DM Vurgusu: Canlı Turkuaz */
+  color: var(--color-primary-accent);
+  font-weight: bold;
+}
+
+.name-text {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  /* Hover Rengi: Canlı Turkuaz */
+  color: var(--color-primary-accent);
+}
+
+/* --- İçerik Düzeni --- */
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+section {
+  margin-bottom: 6rem;
+}
+
+/* ... (Animasyon stilleri aynı kalabilir) ... */
+
+section:not(#hakkimda) {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section:not(#hakkimda).visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section:not(#hakkimda).hidden {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

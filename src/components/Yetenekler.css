@@ -1,0 +1,50 @@
+.section-content {
+    position: relative;
+    padding: 4rem 2rem;
+    background: rgba(42, 64, 102, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.content-flow {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title-glow {
+    font-size: 3rem;
+    color: #4a7eb5;
+    text-shadow: 0 0 10px rgba(74, 126, 181, 0.5);
+    margin-bottom: 2rem;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.skill-item {
+    background: rgba(74, 126, 181, 0.3);
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    color: #fff;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.1);
+    background: rgba(74, 126, 181, 0.5);
+}
+
+@media (max-width: 768px) {
+    .title-glow {
+        font-size: 2.5rem;
+    }
+    .skills-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}

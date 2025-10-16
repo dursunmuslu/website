@@ -1,0 +1,76 @@
+/* İletişim Bölümü - Iletisim.css */
+
+.section-content {
+    position: relative;
+    padding: 4rem 2rem;
+    /* Genel Arka Plan Rengine Uyumlu Koyu Ton */
+    background: var(--color-section-bg);
+    border-radius: 15px;
+    overflow: hidden;
+
+    /* İletişim bloğunu öne çıkarmak için keskin bir dış gölge */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    /* Sayfanın en altındaki hissi vermek için hafif marj */
+    margin-bottom: 2rem;
+}
+
+.content-flow {
+    max-width: 800px; /* İçeriği ortada topladık */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title-glow {
+    font-size: 3.5rem; /* Başlığı biraz büyüttük */
+    color: var(--color-primary-accent); /* Canlı Turkuaz */
+    text-shadow: 0 0 15px rgba(97, 218, 251, 0.7);
+    margin-bottom: 3rem; /* Altına boşluk ekledik */
+    font-weight: 700;
+}
+
+.contact-details {
+    /* İletişim Bilgilerini Yatayda Hizalamak İçin Flex kullanıyoruz */
+    display: flex;
+    flex-wrap: wrap; /* Küçük ekranlarda alta geçişi sağla */
+    justify-content: center;
+    gap: 1.5rem 2rem; /* Satır ve sütun boşlukları */
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    line-height: 1.2;
+}
+
+.contact-details p {
+    /* Her bir bilgi bloğunu öne çıkarıyoruz */
+    flex: 1 1 200px; /* Her blok için minimum genişlik 200px */
+    padding: 1rem 1.5rem;
+    background: rgba(97, 218, 251, 0.1); /* Hafif turkuaz arka plan */
+    border: 1px solid var(--color-primary-accent); /* Turkuaz kenarlık */
+    border-radius: 8px;
+
+    /* Vurgu Rengi Gölgesi */
+    box-shadow: 0 0 10px rgba(97, 218, 251, 0.3);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.contact-details p:hover {
+    color: var(--color-dark-bg); /* Hover'da koyu metin */
+    background: var(--color-primary-accent); /* Arka planı turkuaz ile doldur */
+    transform: translateY(-3px) scale(1.05); /* Hafif yukarı ve büyüme efekti */
+    box-shadow: 0 5px 15px rgba(97, 218, 251, 0.7); /* Parlak gölge */
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .title-glow {
+        font-size: 2.5rem;
+    }
+    .contact-details {
+        flex-direction: column; /* Mobil görünümde alt alta sırala */
+        gap: 1rem;
+    }
+    .contact-details p {
+        flex: 1 1 100%; /* Tüm genişliği kaplasın */
+    }
+}

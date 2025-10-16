@@ -1,0 +1,140 @@
+/* Sertifikalar.css (Canlı Turkuaz Paleti ve Modal Stilleri) */
+
+/* Renk değişkenlerini App.css'ten alıyoruz */
+.section-content {
+    position: relative;
+    padding: 4rem 2rem;
+    background: var(--color-section-bg);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.content-flow {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title-glow {
+    font-size: 3rem;
+    color: var(--color-primary-accent); /* Turkuaz Vurgu */
+    text-shadow: 0 0 10px rgba(97, 218, 251, 0.5);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.certificates-grid {
+    display: grid;
+    /* Kartları biraz büyüttük ve boşlukları açtık */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    align-items: stretch; /* Eşit yükseklikte olmalarını sağlar */
+}
+
+.certificate-card {
+    /* Yeni Kart Stili */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(97, 218, 251, 0.2);
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer; /* Tıklanabilir olduğunu belli eder */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px) scale(1.02); /* Hafif yukarı ve büyüme */
+    box-shadow: 0 5px 20px rgba(97, 218, 251, 0.4);
+}
+
+.certificate-card img {
+    width: 100%;
+    /* Sertifika görsellerinin tamamının görünmesi için */
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    /* Kart boyutundan dolayı resmin yüksekliğini sınırlıyoruz */
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.certificate-card p {
+    color: var(--color-text-light);
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .title-glow {
+        font-size: 2.5rem;
+    }
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- MODAL STILLERI (Projelerim.css'ten kopyalanmıştır) --- */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Daha koyu arka plan */
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--color-dark-bg);
+    border: 2px solid var(--color-primary-accent);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 900px; /* Sertifika görselleri için daha geniş alan */
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 0 40px rgba(97, 218, 251, 0.5);
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--color-primary-accent);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-content h2 {
+    color: var(--color-primary-accent);
+    margin-bottom: 0.5rem;
+}
+
+.issuer-text {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.modal-certificate-image {
+    width: 100%;
+    height: auto;
+    /* Sertifikalar genellikle yatay olduğundan max-height'ı düşük tutuyoruz */
+    max-height: 70vh;
+    object-fit: contain;
+    border: 1px solid rgba(97, 218, 251, 0.3);
+    border-radius: 5px;
+}

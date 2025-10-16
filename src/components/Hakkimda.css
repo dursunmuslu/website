@@ -1,0 +1,69 @@
+.content-flow {
+    display: flex;
+    /* align-items: stretch; Bu satırı kaldırıyoruz veya yorum satırı yapıyoruz */
+    align-items: flex-start; /* Fotoğraf ve metni üstten hizalarız */
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*... diğer stiller ...*/
+
+.photo-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    /* height: 100%; Bu satırı da kaldırıyoruz veya yorum satırı yapıyoruz */
+    /* Resmin kendi boyutuna göre esnemesine izin veriyoruz */
+}
+
+.photo-frame {
+    position: relative;
+    width: 280px; /* Genişlik sabit kalsın */
+
+    /* YÜKSEKLİK İÇİN YENİ YAKLAŞIM */
+    height: auto; /* İçeriğine göre yüksekliği ayarla */
+    max-height: 400px; /* Resmin aşırı uzamasını engellemek için maksimum yükseklik */
+
+    /* İçindeki resmi orantılı tutmak için min-height da ekleyebiliriz */
+    min-height: 250px; /* Çok kısa olmasını da engeller */
+
+    /* ... (Diğer özgün clip-path ve gölge stilleri sabit kalır) ... */
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    border: 3px solid #4a7eb5;
+    box-shadow:
+            0 0 15px rgba(74, 126, 181, 0.6),
+            -10px 10px 0px rgba(74, 126, 181, 0.2);
+    overflow: hidden;
+
+    /* Ekstra: Metinle hizalamak için top değeri ile hafifçe aşağı kaydırabiliriz */
+    /* top: 20px; */
+}
+
+/* ... (Diğer stiller sabit kalır) ... */
+
+/* Fotoğrafın içerisindeki resim */
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resmi keserek çerçeveye sığdırır */
+    transition: transform 0.4s ease;
+    filter: grayscale(40%);
+}
+
+/* ... (Diğer stiller sabit kalır) ... */
+
+@media (max-width: 768px) {
+    .content-flow {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .photo-frame {
+        margin: 0 auto 2rem;
+        width: 200px;
+        height: 240px; /* Mobil görünümde belirli bir yükseklik verilebilir */
+        max-height: none; /* Mobil görünümde max-height'ı sıfırla */
+        min-height: auto; /* Mobil görünümde min-height'ı sıfırla */
+    }
+    /* ... (Diğer mobil stiller sabit kalır) ... */
+}
