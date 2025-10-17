@@ -23,12 +23,16 @@
 }
 
 .certificates-grid {
+    margin-top: 110px;
+    margin-left: -280px;
     display: grid;
-    /* Kartları biraz büyüttük ve boşlukları açtık */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
-    align-items: stretch; /* Eşit yükseklikte olmalarını sağlar */
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 3rem; /* Kartlar arası boşluk */
+    justify-items: center; /* Kartları kendi hücrelerinde ortalar */
+    align-items: stretch;
 }
+
 
 .certificate-card {
     /* Yeni Kart Stili */

@@ -12,7 +12,7 @@ function Hakkimda() {
                     </div>
                 </div>
                 <div className="text-flow">
-                    <h1 className="title-glow">Merhaba, Ben Dursun</h1>
+                    <h1 className="title-glow">Merhaba, Ben Dursun MUSLU</h1>
                     <p className="subtitle-text">Full-Stack Geliştirici & AI Meraklısı</p>
                     <p className="intro-text">
                         Yeni mezun bir bilgisayar mühendisi olarak yazılım geliştirme alanında kendimi sürekli geliştiren,

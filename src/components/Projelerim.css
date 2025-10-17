@@ -18,6 +18,8 @@
 }
 
 .projects-grid {
+    margin-top: 110px;
+    margin-left: -250px;
     /* Yan yana durmasını ve eşit boyda olmasını sağlar */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

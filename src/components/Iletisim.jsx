@@ -1,18 +1,45 @@
 import React, { useEffect, useRef } from 'react';
 import './Iletisim.css';
 
-// Yeni bileşen: İletişim detaylarını link yapısıyla gösterir
-const ContactItem = ({ label, value, href }) => (
-    <p onClick={() => window.open(href, '_blank')} title={label}>
-        {label}: **{value}**
-    </p>
-);
+// 1. React Icons kütüphanesinden gerekli ikonları içeri aktarıyoruz
+import { FaInstagram, FaEnvelope, FaPhone, FaLinkedin, FaGithub } from 'react-icons/fa';
+
+// İkonları eşleştiren bir obje oluşturuyoruz
+const ICONS = {
+    Instagram: FaInstagram,
+    Email: FaEnvelope,
+    Telefon: FaPhone,
+    LinkedIn: FaLinkedin,
+    GitHub: FaGithub,
+};
+
+// Yeni bileşen: İletişim detaylarını link ve ikon yapısıyla gösterir
+const ContactItem = ({ label, value, href }) => {
+    // İkonu label'a göre al
+    const IconComponent = ICONS[label];
+
+    // İkona ve tüm p etiketine tıklayınca linke gitme işlevi
+    const handleClick = () => {
+        window.open(href, '_blank');
+    };
+
+    return (
+        // İkona da tıklanabilirliği eklemek için onClick'i p etiketine taşıdık
+        <p onClick={handleClick} title={label} className="contact-item">
+            {/* İkonu sol tarafa yerleştiriyoruz */}
+            {IconComponent && <IconComponent className="contact-icon" size={24} />}
+
+            <span className="contact-text">
+                {label}: **{value}**
+            </span>
+        </p>
+    );
+};
 
 function Iletisim() {
     const sectionRef = useRef(null);
 
     useEffect(() => {
-        // IntersectionObserver kodu aynı kalır...
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -38,6 +65,11 @@ function Iletisim() {
             <div className="content-flow">
                 <h1 className="title-glow">İletişim</h1>
                 <div className="contact-details">
+                    <ContactItem
+                        label="Instagram"
+                        value="/dursunmuslu"
+                        href="https://www.instagram.com/dursunmuslu/"
+                    />
                     <ContactItem
                         label="Email"
                         value="dursunmuslu.tr@gmail.com"

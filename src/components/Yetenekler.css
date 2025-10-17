@@ -20,6 +20,8 @@
 }
 
 .skills-list {
+    margin-top: 110px;
+    margin-left: -250px;
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;

@@ -20,6 +20,8 @@
 }
 
 .education-list {
+    margin-top: 110px;
+    margin-left: -150px;
     display: flex;
     flex-direction: column;
     gap: 2rem;
