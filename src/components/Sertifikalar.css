@@ -24,7 +24,7 @@
 
 .certificates-grid {
     margin-top: 110px;
-    margin-left: -280px;
+    margin-left: -230px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
@@ -80,7 +80,6 @@
     }
 }
 
-/* --- MODAL STILLERI (Projelerim.css'ten kopyalanmıştır) --- */
 
 .modal-backdrop {
     position: fixed;
@@ -88,7 +87,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85); /* Daha koyu arka plan */
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(5px);
     z-index: 10000;
     display: flex;
@@ -101,7 +100,7 @@
     border: 2px solid var(--color-primary-accent);
     padding: 2rem;
     border-radius: 10px;
-    max-width: 900px; /* Sertifika görselleri için daha geniş alan */
+    max-width: 900px;
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
@@ -136,9 +135,34 @@
 .modal-certificate-image {
     width: 100%;
     height: auto;
-    /* Sertifikalar genellikle yatay olduğundan max-height'ı düşük tutuyoruz */
     max-height: 70vh;
     object-fit: contain;
     border: 1px solid rgba(97, 218, 251, 0.3);
     border-radius: 5px;
+}
+
+.certificate-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 950px;
+    margin-left: -470px;
+}
+
+.certificate-button {
+    background-color: var(--color-primary-accent);
+    color: #000;
+    font-weight: bold;
+    padding: 0.9rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.4);
+    font-size: 1.1rem;
+}
+
+.certificate-button:hover {
+    background-color: #00bfff;
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(97, 218, 251, 0.6);
 }

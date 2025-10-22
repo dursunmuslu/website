@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Projelerim.css';
 
-// Proje Verisi (Tüm detayları burada tutuyoruz)
 const PROJECTS = [
     {
         id: 1,
@@ -24,18 +23,22 @@ const PROJECTS = [
         shortDesc: "Yapay zeka projesi. Kameradan alınan anlık görüntülerde hareket tespiti yaparak hareketli nesneyi ayırt eder ve görüntüleri kullanıcıya mail ile anlık iletir.",
         fullDesc: "Yapay zeka projesi olarak geliştirdiğim bu projemde kamera ile almış olduğum anlık görüntüde bir hareket olduğunda sistem tespit edip sonrasında hareketli nesneyi ayırt edip bu iki görüntüyü kullanıcıya mail ile anlık olarak iletmektedir.",
     },
+    {
+        id: 4,
+        title: "Proje 4: Mail Doğrulamalı Kayıt Sistemi",
+        shortDesc: "Spring Boot ve React ile geliştirilen, kullanıcı doğrulama mailiyle kayıt işlemi yapan bir sistem.",
+        fullDesc: "BackEnd tarafında Spring Boot ile çalışmış olduğum bu projemde kullanıcılar öncelikle kayıt olup sistemde de kayıtlı diğer kullanıcıları görüntüleyebilmektedir. Kayıt sırasında kayıt oluşturabilmek için mail adreslerine doğrulama maili gönderilip daha sonrasında bu işlem tamamlanmaktadır. Kayıtlı kullanıcılar ile sorunsuz bir şekilde iletişime geçilebilmesi için geliştirmelerim devam etmektedir. Frontend için React ile projemi geliştirdim.",
+    },
 ];
 
-// Modal Bileşeni
 const ProjectModal = ({ project, onClose }) => {
     if (!project) return null;
-
     return (
         <div className="modal-backdrop" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button className="modal-close" onClick={onClose}>&times;</button>
                 <h2>{project.title}</h2>
-                <img src={project.image} alt={project.title} className="modal-image" />
+                {project.image && <img src={project.image} alt={project.title} className="modal-image" />}
                 <p className="modal-desc">{project.fullDesc}</p>
             </div>
         </div>
@@ -49,23 +52,46 @@ function Projelerim() {
         <section id="projelerim" className="section-content">
             <div className="content-flow">
                 <h1 className="title-glow">Projelerim</h1>
+
+                {/* Projeler Grid */}
                 <div className="projects-grid">
                     {PROJECTS.map(project => (
                         <div
                             key={project.id}
                             className="project-card"
-                            onClick={() => setSelectedProject(project)} // Tıklandığında Modal'ı aç
+                            onClick={() => setSelectedProject(project)}
                         >
-                            <img src={project.image} alt={project.title} className="card-image-symbol" />
+                            {project.image && (
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="card-image-symbol"
+                                />
+                            )}
                             <h3>{project.title}</h3>
-                            <p>{project.shortDesc}</p> {/* KISA AÇIKLAMA GÖSTERİLİYOR */}
+                            <p>{project.shortDesc}</p>
                             <span className="read-more-text">Detayları Gör...</span>
                         </div>
                     ))}
                 </div>
+
+                {/* --- Buton Grid'in ALTINDA --- */}
+                <div className="github-button-container">
+                    <a
+                        href="https://github.com/dursunmuslu?tab=repositories"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="github-button"
+                    >
+                        Tüm Projelerimi Gör →
+                    </a>
+                </div>
             </div>
-            {/* Modal bileşenini ekledik */}
-            <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+
+            <ProjectModal
+                project={selectedProject}
+                onClose={() => setSelectedProject(null)}
+            />
         </section>
     );
 }

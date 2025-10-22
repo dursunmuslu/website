@@ -17,15 +17,42 @@
     text-align: center;
 }
 
+
 .projects-grid {
     margin-top: 110px;
     margin-left: -250px;
-    /* Yan yana durmasını ve eşit boyda olmasını sağlar */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem; /* Boşlukları artırdık */
-    align-items: stretch; /* Kartların eşit yüksekliğe sahip olmasını sağlar */
+    gap: 3rem;
+    align-items: stretch;
+    justify-items: center; /* Kartları ortalar */
 }
+
+.github-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1150px;
+    margin-left: -300px;
+}
+
+.github-button {
+    background-color: var(--color-primary-accent);
+    color: #000;
+    font-weight: bold;
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.4);
+}
+
+.github-button:hover {
+    background-color: #00bfff;
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(97, 218, 251, 0.6);
+}
+
 
 .project-card {
     background: rgba(255, 255, 255, 0.05); /* Daha hafif arka plan */
@@ -136,4 +163,3 @@
     line-height: 1.8;
 }
 
-/* ... (Media queryler aynı kalır) ... */

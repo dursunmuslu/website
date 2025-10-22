@@ -101,27 +101,40 @@ function Sertifikalar() {
         <section ref={sectionRef} id="sertifikalar" className="section-content">
             <div className="content-flow">
                 <h1 className="title-glow">Sertifikalar</h1>
+
                 <div className="certificates-grid">
                     {CERTIFICATES.map(cert => (
                         <div
                             key={cert.id}
                             className="certificate-card"
-                            onClick={() => setSelectedCertificate(cert)} // Tıklanınca Modalı Aç
+                            onClick={() => setSelectedCertificate(cert)}
                         >
-                            {/* Tüm görseller artık '/örnek.jpg' kullanıyor */}
                             <img src={cert.image} alt={cert.title} />
                             <p>{cert.title} - {cert.issuer}</p>
                         </div>
                     ))}
                 </div>
+
+                {/* 🔽 BUTON BURAYA EKLENECEK 🔽 */}
+                <div className="certificate-button-container">
+                    <a
+                        href="https://drive.google.com/drive/folders/14RFnCckzDLjgMezPj3gDy3RgWM_9LM0R?usp=drive_link" // İstersen değiştir
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="certificate-button"
+                    >
+                        Tüm Sertifikalarımı Gör →
+                    </a>
+                </div>
             </div>
-            {/* Modal bileşenini ekledik */}
+
             <CertificateModal
                 certificate={selectedCertificate}
                 onClose={() => setSelectedCertificate(null)}
             />
         </section>
     );
+
 }
 
 export default Sertifikalar;
